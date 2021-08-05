@@ -4,6 +4,7 @@ const matter = require('gray-matter');
 import Link from "next/link"
 import Layout from "../components/Layout"
 import Post from "../components/Post"
+import { sortByDate } from "../utils"
 
 export default function HomePage({ posts }) {
   // console.log(posts)
@@ -49,7 +50,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts
+      posts: posts.sort(sortByDate),
     },
   }
 }
